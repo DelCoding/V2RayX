@@ -21,6 +21,8 @@ By [Homebrew-Cask](https://caskroom.github.io/).
 brew cask install v2rayx
 ```
 
+## Building....
+
 ## How to build
 
 V2RayX.app is built by running one of the following commands in your terminal. You can install this via the command-line with curl.
