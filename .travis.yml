@@ -11,7 +11,9 @@ deploy:
   provider: releases
   api_key:
     secure: M87f4MTgAK+oE3g3a+xWjYOV9hNmHOkYb2X1OETI/1tk0XgLPRnkblC0cTOB/Qf/sDRcVxcN8G5u1q52d1s+xtYEys+uZEa4KQOqgXN2gptj6U6pVKwAIau/wiNZwSVB0ugs5Fv9ZK47LezchnhA/mqB2bDtg+ZwHTwM1v7odgvlZOb+FV7sBz5Av6PSXm+4GAqbnJMqrps5Edr9VpzYD9XKKh9bGh4++CuvPmeGKCYDWax7eDJ2FtkqcINW35ohpsPEIkRW4ffrbdR4IT+MM/8TvCfTFVSvrd18hYn/lEoapBcTdSA//MYujkOltMeI/wMvpKYIZeN1ulQGbwISd9kluW68uI07ki5J14m36CM7d/5MghJKnNows2/dpMi0yXo4hXh7eqfYD8CoIlVlqf8UFk5iZHK6ZvJ92faOE4TwBOH/Bzjbe+rTYWBJvsC69UYfyMjazTP4Wz1+ZCep3FZawGpUIlyoiF8wChdYCE+VW1z8QGZjugdjaKBO9Z4n9ktjUk2DYnar7k+QNmN/gHQ0a5uQ8wnvh/U0Op6NPgY50dGZBh+BUFsx9WZys8sVwt3nrYmhWr75EYNV7S7/i3lnexHE3uLlRfHn/4tAlBOt7O2S+GJLwzUMtWeJnLBUsu+4yEsFuifMGBKJdI5V5sByQTm7ORE3sSzUiBpEMBY=
-  file: build/Debug/V2RayX.app.zip
+  file: 
+      - build/Release/V2RayX.app.zip
+      - build/Release/V2RayX.app
   skip_cleanup: true
   on:
     repo: DelCoding/V2RayX
