@@ -3,31 +3,15 @@ language: objective-c
 sudo: false
 install: true
 script: xcodebuild -project V2RayX.xcodeproj -target V2RayX -configuration Release
-
 after_success:
 - isbeta=$(git describe --abbrev=0 --tags | grep beta)
-
 before_deploy:
 - sh ./prepare_zip.sh
-
 deploy:
-  - provider: releases
-    prerelease: true
-    api_key:
-      secure: HjwZ8C70qYeozvaEUvKqDX42T26pRYiQBrTvzbqy8Q+BDWJZ7vNZhSwgt+oYGBywgpk0bM/Ao3al6YDlTE86bMiRUEGSFjRWo2Oquo4N5ydp5cmzT6sVigrLiviufAMrCrCljh0OEt/hEN7wf7zJ8SZKFCLOi8AhTkJu8yEuFdx/2Zd/VSOs6AFp0s1uGrfd3UmwxWfGcKatpYb4GcCwZk2PrECc0qkAP9UzGjemU1cYzcICi+cXl/NoMeLRftHSZaGl+zg95bvddSlNvyqvPwH/00hnh6kpjdyKMDQ071eFE+9NIShglm5yS9TcR3+fE6WfWU9SjTOnT2IfggvXfogcJWd7k4/AwFoAkezNiV0IMKXl2163T17pfFxVQo56oy9HtMts3bw5TapL2YiJa1PKzluSc5ijNcGdDh/7GIejne9lyTeHNhnE/Acmlt8Mu9N+gSj04R4sqN/GfTGzmlPC4kXB08RLg5ycHksGyf4YOLYe9wOEBN4UaSqepFsWqrrufj16l4dqTdacLdt2dJtkPsqCCiUu+nfVVZP9uibIMqWjBi+Fp2Rz+RIvaqtoQrMy+b1y/YwcVz9cJ29OMwU5hY6MehN5pqknwMhsDk1vH5m93swpL6wfM6CT7NjambVfPGffX8zYp/1l/CbBelzjaxZ/CbV4GHXkYHJ923s=
-    file: build/Debug/V2RayX.app.zip
-    skip_cleanup: true
-    on:
-      repo: Cenmrev/V2RayX
-      tags: true
-      condition: "\"$isbeta\" != \"\""
-
-  - provider: releases
-    api_key:
-      secure: HjwZ8C70qYeozvaEUvKqDX42T26pRYiQBrTvzbqy8Q+BDWJZ7vNZhSwgt+oYGBywgpk0bM/Ao3al6YDlTE86bMiRUEGSFjRWo2Oquo4N5ydp5cmzT6sVigrLiviufAMrCrCljh0OEt/hEN7wf7zJ8SZKFCLOi8AhTkJu8yEuFdx/2Zd/VSOs6AFp0s1uGrfd3UmwxWfGcKatpYb4GcCwZk2PrECc0qkAP9UzGjemU1cYzcICi+cXl/NoMeLRftHSZaGl+zg95bvddSlNvyqvPwH/00hnh6kpjdyKMDQ071eFE+9NIShglm5yS9TcR3+fE6WfWU9SjTOnT2IfggvXfogcJWd7k4/AwFoAkezNiV0IMKXl2163T17pfFxVQo56oy9HtMts3bw5TapL2YiJa1PKzluSc5ijNcGdDh/7GIejne9lyTeHNhnE/Acmlt8Mu9N+gSj04R4sqN/GfTGzmlPC4kXB08RLg5ycHksGyf4YOLYe9wOEBN4UaSqepFsWqrrufj16l4dqTdacLdt2dJtkPsqCCiUu+nfVVZP9uibIMqWjBi+Fp2Rz+RIvaqtoQrMy+b1y/YwcVz9cJ29OMwU5hY6MehN5pqknwMhsDk1vH5m93swpL6wfM6CT7NjambVfPGffX8zYp/1l/CbBelzjaxZ/CbV4GHXkYHJ923s=
-    file: build/Release/V2RayX.app.zip
-    skip_cleanup: true
-    on:
-      repo: Cenmrev/V2RayX
-      tags: true
-      condition: "\"$isbeta\" = \"\""
+  provider: releases
+  api_key:
+    secure: M87f4MTgAK+oE3g3a+xWjYOV9hNmHOkYb2X1OETI/1tk0XgLPRnkblC0cTOB/Qf/sDRcVxcN8G5u1q52d1s+xtYEys+uZEa4KQOqgXN2gptj6U6pVKwAIau/wiNZwSVB0ugs5Fv9ZK47LezchnhA/mqB2bDtg+ZwHTwM1v7odgvlZOb+FV7sBz5Av6PSXm+4GAqbnJMqrps5Edr9VpzYD9XKKh9bGh4++CuvPmeGKCYDWax7eDJ2FtkqcINW35ohpsPEIkRW4ffrbdR4IT+MM/8TvCfTFVSvrd18hYn/lEoapBcTdSA//MYujkOltMeI/wMvpKYIZeN1ulQGbwISd9kluW68uI07ki5J14m36CM7d/5MghJKnNows2/dpMi0yXo4hXh7eqfYD8CoIlVlqf8UFk5iZHK6ZvJ92faOE4TwBOH/Bzjbe+rTYWBJvsC69UYfyMjazTP4Wz1+ZCep3FZawGpUIlyoiF8wChdYCE+VW1z8QGZjugdjaKBO9Z4n9ktjUk2DYnar7k+QNmN/gHQ0a5uQ8wnvh/U0Op6NPgY50dGZBh+BUFsx9WZys8sVwt3nrYmhWr75EYNV7S7/i3lnexHE3uLlRfHn/4tAlBOt7O2S+GJLwzUMtWeJnLBUsu+4yEsFuifMGBKJdI5V5sByQTm7ORE3sSzUiBpEMBY=
+  file: build/Debug/V2RayX.app.zip
+  on:
+    repo: DelCoding/V2RayX
+    tags: true
